@@ -191,7 +191,9 @@ func sysl(c *LogD) {
 		for msg := range LogInfo {
 			array := strings.Split(msg, "\n")
 			for _, s := range array {
-				l.Info(s)
+				if err := l.Info(s); err != nil {
+					ShowErr("unable to write to log")
+				}
 			}
 		}
 	}()
@@ -201,7 +203,9 @@ func sysl(c *LogD) {
 		for msg := range LogErr {
 			array := strings.Split(msg, "\n")
 			for _, s := range array {
-				l.Err(s)
+				if err := l.Err(s); err != nil {
+					ShowErr("unable to write to log")
+				}
 			}
 			time.Sleep(c.ErrorRateLimit) // global err rate limit lock
 		}
@@ -212,7 +216,9 @@ func sysl(c *LogD) {
 		for msg := range LogDebug {
 			array := strings.Split(msg, "\n")
 			for _, s := range array {
-				l.Debug(s)
+				if err := l.Debug(s); err != nil {
+					ShowErr("unable to write to log")
+				}
 			}
 		}
 	}()
@@ -303,22 +309,12 @@ func isDir(filename string) bool {
 		return false
 	}
 	mode := inf.Mode()
-	if !mode.IsDir() {
-		return false
-	}
-	return true
+	return mode.IsDir()
 }
 
 func isWriteable(file string) bool {
 	defer os.Remove(file)
 	if err := os.WriteFile(file, []byte("test"), 0o660); err != nil {
-		return false
-	}
-	return true
-}
-
-func isSymlink(filename string) bool {
-	if _, err := os.Readlink(filename); err != nil {
 		return false
 	}
 	return true
