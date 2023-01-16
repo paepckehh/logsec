@@ -1,4 +1,5 @@
 # OVERVIEW
+[![Go Report Card](https://goreportcard.com/badge/paepcke.de/logsec)](https://goreportcard.com/report/paepcke.de/logsec)
 
 [paepche.de/logsec](https://paepcke.de/logsec/)
 
