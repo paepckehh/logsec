@@ -1,7 +1,7 @@
 # OVERVIEW
 [![Go Reference](https://pkg.go.dev/badge/paepcke.de/logsec.svg)](https://pkg.go.dev/paepcke.de/logsec) [![Go Report Card](https://goreportcard.com/badge/paepcke.de/logsec)](https://goreportcard.com/report/paepcke.de/logsec) [![Go Build](https://github.com/paepckehh/logsec/actions/workflows/golang.yml/badge.svg)](https://github.com/paepckehh/logsec/actions/workflows/golang.yml)
 
-[paepche.de/logsec](https://paepcke.de/logsec/)
+[paepcke.de/logsec](https://paepcke.de/logsec/)
 
 Log library with focus on deep integration for chroots, suid, (s)user priv drop
 100 % pure golang, stdlib only, no external dependencies, use as lib, see api.go
