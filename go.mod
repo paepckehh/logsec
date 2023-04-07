@@ -2,4 +2,4 @@ module paepcke.de/logsec
 
 go 1.20
 
-require golang.org/x/net v0.8.0 // indirect
+require golang.org/x/net v0.9.0 // indirect
